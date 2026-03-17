@@ -1,5 +1,6 @@
 # IDEA
-.idea
+*.imi
+.idea/
 
 # Compiled class file
 *.class
