@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shixun.mapper.UserMapper">
+    <insert id="insert" parameterType="com.shixun.pojo.entity.User">
+        INSERT INTO user (user_account,
+                          user_name,
+                          user_pwd,
+                          user_avatar,
+                          user_email,
+                          user_role,
+                          is_login,
+                          is_word,
+                          last_login_time,
+                          create_time)
+        VALUES (#{userAccount},
+                #{userName},
+                #{userPwd},
+                #{userAvatar},
+                #{userEmail},
+                #{userRole},
+                #{isLogin},
+                #{isWord},
+                #{lastLoginTime},
+                #{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.shixun.pojo.entity.User">
+        UPDATE user
+        <set>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getByActive" resultMap="BaseResultMap">
+        SELECT u.*
+        FROM user u
+        <where>
+            <if test="id != null">
+                AND u.id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                AND u.user_name = #{userName}
+            </if>
+            <if test="userAccount != null and userAccount != ''">
+                AND u.user_account = #{userAccount}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="BaseResultMap" type="com.shixun.pojo.entity.User">
+        <id column="id" property="id"/>
+        <result column="user_account" property="userAccount"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_pwd" property="userPwd"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_role" property="userRole"/>
+        <result column="is_login" property="isLogin"/>
+        <result column="is_word" property="isWord"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+</mapper>
