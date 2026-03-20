@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shixun.mapper.InteractionMapper">
+
+    <insert id="save">
+        INSERT INTO interaction (user_id,product_id,type,create_time)
+        VALUES (#{userId},#{productId},#{type},#{createTime})
+    </insert>
+
+    <delete id="batchDelete" parameterType="list">
+        DELETE FROM interaction WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="query" resultMap="BaseResultMap">
+
+        SELECT i.*,
+               u.user_name,
+               u.user_account,
+               p.name AS product_title
+        FROM interaction i
+        LEFT JOIN user u ON u.id = i.user_id
+        LEFT JOIN product p ON p.id = i.product_id
+        <where>
+            <if test="id != null">
+                AND i.id = #{id}
+            </if>
+            <if test="userId != null">
+                AND i.user_id = #{userId}
+            </if>
+            <if test="productId != null">
+                AND i.product_id = #{productId}
+            </if>
+            <if test="type != null">
+                AND i.type = #{type}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND i.create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+        ORDER BY i.id DESC
+        <if test="current != null and size != null">
+            LIMIT #{current},#{size}
+        </if>
+    </select>
+
+    <!--满足分页条件的数据总项-->
+    <select id="queryCount" resultType="integer">
+
+        SELECT COUNT(*)
+        FROM interaction i
+        <where>
+            <if test="id != null">
+                AND i.id = #{id}
+            </if>
+            <if test="userId != null">
+                AND i.user_id = #{userId}
+            </if>
+            <if test="productId != null">
+                AND i.product_id = #{productId}
+            </if>
+            <if test="type != null">
+                AND i.type = #{type}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND i.create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="queryByProductIds" resultMap="BaseResultMap">
+        SELECT i.*
+        FROM interaction i WHERE i.product_id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shixun.pojo.vo.InteractionVO">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="product_id" property="productId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_account" property="userAccount"/>
+        <result column="product_title" property="productTitle"/>
+        <result column="type" property="type"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shixun.mapper.OrdersMapper">
+
+    <insert id="save">
+        INSERT INTO orders (code, detail, user_id, product_id, buy_price, buy_number,trade_status, trade_time, refund_status,
+                            refund_time, is_refund_confirm, create_time)
+        VALUES (#{code}, #{detail}, #{userId}, #{productId}, #{buyPrice},#{buyNumber},#{tradeStatus}, #{tradeTime}, #{refundStatus},
+                #{refundTime}, #{isRefundConfirm}, #{createTime})
+    </insert>
+
+    <update id="update">
+        UPDATE orders
+        <set>
+            <if test="detail != null and detail != ''">
+                detail = #{detail},
+            </if>
+            <if test="buyPrice != null">
+                buy_price = #{buyPrice},
+            </if>
+            <if test="buyNumber != null">
+                buy_number = #{buyNumber},
+            </if>
+            <if test="tradeStatus != null">
+                trade_status = #{tradeStatus},
+            </if>
+            <if test="tradeTime != null">
+                trade_time = #{tradeTime},
+            </if>
+            <if test="refundStatus != null">
+                refund_status = #{refundStatus},
+            </if>
+            <if test="refundTime != null">
+                refund_time = #{refundTime},
+            </if>
+            <if test="isRefundConfirm != null">
+                is_refund_confirm = #{isRefundConfirm},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="batchDelete" parameterType="list">
+        DELETE FROM orders WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--分页查询信息-->
+    <select id="query" resultMap="BaseResultMap">
+
+        SELECT o.*,
+        u.user_name,
+        u.user_avatar,
+        p.name AS product_title,
+        p.cover_list AS product_cover
+        FROM orders o
+        LEFT JOIN user u ON u.id = o.user_id
+        LEFT JOIN product p ON p.id = o.product_id
+        <where>
+            <if test="code != null and code != ''">
+                AND o.code LIKE concat('%',#{code},'%')
+            </if>
+            <if test="detail != null and detail != ''">
+                AND o.detail LIKE concat('%',#{detail},'%')
+            </if>
+            <if test="userId != null">
+                AND o.user_id = #{userId}
+            </if>
+            <if test="productId != null">
+                AND o.product_id = #{productId}
+            </if>
+            <if test="tradeStatus != null">
+                AND o.trade_status = #{tradeStatus}
+            </if>
+            <if test="refundStatus != null">
+                AND o.refund_status = #{refundStatus}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND o.create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+        ORDER BY o.create_time DESC
+        <if test="current != null and size != null">
+            LIMIT #{current},#{size}
+        </if>
+    </select>
+
+    <!--满足分页条件的数据总项-->
+    <select id="queryCount" resultType="integer">
+
+        SELECT COUNT(*)
+        FROM orders o
+        <where>
+            <if test="code != null and code != ''">
+                AND o.code LIKE concat('%',#{code},'%')
+            </if>
+            <if test="detail != null and detail != ''">
+                AND o.detail LIKE concat('%',#{detail},'%')
+            </if>
+            <if test="userId != null">
+                AND o.user_id = #{userId}
+            </if>
+            <if test="productId != null">
+                AND o.product_id = #{productId}
+            </if>
+            <if test="tradeStatus != null">
+                AND o.trade_status = #{tradeStatus}
+            </if>
+            <if test="refundStatus != null">
+                AND o.refund_status = #{refundStatus}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND o.create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="queryByProductIds" resultMap="BaseResultMap">
+        SELECT o.*,
+        u.user_name,
+        u.user_avatar,
+        p.name AS product_title,
+        p.cover_list AS product_cover
+        FROM orders o
+        LEFT JOIN user u ON u.id = o.user_id
+        LEFT JOIN product p ON p.id = o.product_id
+        WHERE o.product_id IN
+        <foreach collection="productIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        <if test="tradeStatus != null">
+            AND o.trade_status = #{tradeStatus}
+        </if>
+        <if test="code != null and code != ''">
+            AND o.code LIKE concat('%',#{code},'%')
+        </if>
+        ORDER BY o.create_time DESC
+    </select>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shixun.pojo.vo.OrdersVO">
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="detail" property="detail"/>
+        <result column="user_id" property="userId"/>
+        <result column="product_id" property="productId"/>
+        <result column="buy_price" property="buyPrice"/>
+        <result column="buy_number" property="buyNumber"/>
+        <result column="trade_status" property="tradeStatus"/>
+        <result column="trade_time" property="tradeTime"/>
+        <result column="refund_status" property="refundStatus"/>
+        <result column="refund_time" property="refundTime"/>
+        <result column="is_refund_confirm" property="isRefundConfirm"/>
+        <result column="create_time" property="createTime"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="product_title" property="productTitle"/>
+        <result column="product_cover" property="productCover"/>
+    </resultMap>
+
+
+</mapper>
