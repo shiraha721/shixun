@@ -1,11 +1,11 @@
-package cn.kmbeast.service.impl;
+package com.shixun.service.impl;
 
-import cn.kmbeast.mapper.CategoryMapper;
-import cn.kmbeast.pojo.api.ApiResult;
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.CategoryQueryDto;
-import cn.kmbeast.pojo.entity.Category;
-import cn.kmbeast.service.CategoryService;
+import com.shixun.mapper.CategoryMapper;
+import com.shixun.pojo.api.ApiResult;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.CategoryQueryDto;
+import com.shixun.pojo.entity.Category;
+import com.shixun.service.CategoryService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
