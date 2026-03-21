@@ -1,6 +1,6 @@
-package cn.kmbeast.pojo.vo;
+package com.shixun.pojo.vo;
 
-import cn.kmbeast.pojo.entity.Product;
+import com.shixun.pojo.entity.Product;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
