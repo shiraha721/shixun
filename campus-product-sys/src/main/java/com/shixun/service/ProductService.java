@@ -1,12 +1,12 @@
-package cn.kmbeast.service;
+package com.shixun.service;
 
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
-import cn.kmbeast.pojo.dto.update.OrdersDTO;
-import cn.kmbeast.pojo.entity.Orders;
-import cn.kmbeast.pojo.entity.Product;
-import cn.kmbeast.pojo.vo.ChartVO;
-import cn.kmbeast.pojo.vo.ProductVO;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.ProductQueryDto;
+import com.shixun.pojo.dto.update.OrdersDTO;
+import com.shixun.pojo.entity.Orders;
+import com.shixun.pojo.entity.Product;
+import com.shixun.pojo.vo.ChartVO;
+import com.shixun.pojo.vo.ProductVO;
 
 import java.util.List;
 
