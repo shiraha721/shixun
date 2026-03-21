@@ -1,4 +1,4 @@
-package cn.kmbeast.pojo.entity;
+package com.shixun.pojo.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
