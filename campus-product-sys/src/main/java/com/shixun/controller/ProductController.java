@@ -1,15 +1,15 @@
-package cn.kmbeast.controller;
+package com.shixun.controller;
 
-import cn.kmbeast.aop.Log;
-import cn.kmbeast.aop.Pager;
-import cn.kmbeast.context.LocalThreadHolder;
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
-import cn.kmbeast.pojo.dto.update.OrdersDTO;
-import cn.kmbeast.pojo.entity.Product;
-import cn.kmbeast.pojo.vo.ChartVO;
-import cn.kmbeast.pojo.vo.ProductVO;
-import cn.kmbeast.service.ProductService;
+import com.shixun.aop.Log;
+import com.shixun.aop.Pager;
+import com.shixun.context.LocalThreadHolder;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.ProductQueryDto;
+import com.shixun.pojo.dto.update.OrdersDTO;
+import com.shixun.pojo.entity.Product;
+import com.shixun.pojo.vo.ChartVO;
+import com.shixun.pojo.vo.ProductVO;
+import com.shixun.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
