@@ -1,20 +1,20 @@
-package cn.kmbeast.service.impl;
+package com.shixun.service.impl;
 
-import cn.kmbeast.context.LocalThreadHolder;
-import cn.kmbeast.mapper.InteractionMapper;
-import cn.kmbeast.mapper.OrdersMapper;
-import cn.kmbeast.mapper.ProductMapper;
-import cn.kmbeast.pojo.api.ApiResult;
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
-import cn.kmbeast.pojo.dto.update.OrdersDTO;
-import cn.kmbeast.pojo.em.InteractionEnum;
-import cn.kmbeast.pojo.entity.Interaction;
-import cn.kmbeast.pojo.entity.Orders;
-import cn.kmbeast.pojo.entity.Product;
-import cn.kmbeast.pojo.vo.ChartVO;
-import cn.kmbeast.pojo.vo.ProductVO;
-import cn.kmbeast.service.ProductService;
+import com.shixun.context.LocalThreadHolder;
+import com.shixun.mapper.InteractionMapper;
+import com.shixun.mapper.OrdersMapper;
+import com.shixun.mapper.ProductMapper;
+import com.shixun.pojo.api.ApiResult;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.ProductQueryDto;
+import com.shixun.pojo.dto.update.OrdersDTO;
+import com.shixun.pojo.em.InteractionEnum;
+import com.shixun.pojo.entity.Interaction;
+import com.shixun.pojo.entity.Orders;
+import com.shixun.pojo.entity.Product;
+import com.shixun.pojo.vo.ChartVO;
+import com.shixun.pojo.vo.ProductVO;
+import com.shixun.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
