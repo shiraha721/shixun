@@ -1,8 +1,8 @@
-package cn.kmbeast.mapper;
+package com.shixun.mapper;
 
-import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
-import cn.kmbeast.pojo.entity.Product;
-import cn.kmbeast.pojo.vo.ProductVO;
+import com.shixun.pojo.dto.query.extend.ProductQueryDto;
+import com.shixun.pojo.entity.Product;
+import com.shixun.pojo.vo.ProductVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
