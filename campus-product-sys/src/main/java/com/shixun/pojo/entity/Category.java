@@ -1,4 +1,4 @@
-package cn.kmbeast.pojo.entity;
+package com.shixun.pojo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
