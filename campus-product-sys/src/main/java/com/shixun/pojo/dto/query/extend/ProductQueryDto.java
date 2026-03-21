@@ -1,6 +1,6 @@
-package cn.kmbeast.pojo.dto.query.extend;
+package com.shixun.pojo.dto.query.extend;
 
-import cn.kmbeast.pojo.dto.query.base.QueryDto;
+import com.shixun.pojo.dto.query.base.QueryDto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
