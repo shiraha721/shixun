@@ -1,8 +1,8 @@
-package cn.kmbeast.service;
+package com.shixun.service;
 
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.CategoryQueryDto;
-import cn.kmbeast.pojo.entity.Category;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.CategoryQueryDto;
+import com.shixun.pojo.entity.Category;
 
 import java.util.List;
 
