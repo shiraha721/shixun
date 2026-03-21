@@ -1,11 +1,11 @@
-package cn.kmbeast.controller;
+package com.shixun.controller;
 
-import cn.kmbeast.aop.Pager;
-import cn.kmbeast.aop.Protector;
-import cn.kmbeast.pojo.api.Result;
-import cn.kmbeast.pojo.dto.query.extend.CategoryQueryDto;
-import cn.kmbeast.pojo.entity.Category;
-import cn.kmbeast.service.CategoryService;
+import com.shixun.aop.Pager;
+import com.shixun.aop.Protector;
+import com.shixun.pojo.api.Result;
+import com.shixun.pojo.dto.query.extend.CategoryQueryDto;
+import com.shixun.pojo.entity.Category;
+import com.shixun.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
