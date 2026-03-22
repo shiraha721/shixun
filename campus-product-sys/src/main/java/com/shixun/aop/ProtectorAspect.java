@@ -1,10 +1,10 @@
-package cn.kmbeast.aop;
+package com.shixunt.aop;
 
-import cn.kmbeast.context.LocalThreadHolder;
-import cn.kmbeast.pojo.api.ApiResult;
-import cn.kmbeast.pojo.em.RoleEnum;
-import cn.kmbeast.service.UserService;
-import cn.kmbeast.utils.JwtUtil;
+import com.shixunt.context.LocalThreadHolder;
+import com.shixunt.pojo.api.ApiResult;
+import com.shixunt.pojo.em.RoleEnum;
+import com.shixunt.service.UserService;
+import com.shixunt.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
