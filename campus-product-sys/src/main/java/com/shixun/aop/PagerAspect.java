@@ -1,4 +1,4 @@
-package cn.kmbeast.aop;
+package com.shixun.aop;
 
 import com.shixun.pojo.dto.query.base.QueryDto;
 import org.aspectj.lang.ProceedingJoinPoint;
