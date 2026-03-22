@@ -1,10 +1,10 @@
-package com.shixunt.aop;
+package com.shixun.aop;
 
-import com.shixunt.context.LocalThreadHolder;
-import com.shixunt.pojo.api.ApiResult;
-import com.shixunt.pojo.em.RoleEnum;
-import com.shixunt.service.UserService;
-import com.shixunt.utils.JwtUtil;
+import com.shixun.context.LocalThreadHolder;
+import com.shixun.pojo.api.ApiResult;
+import com.shixun.pojo.em.RoleEnum;
+import com.shixun.service.UserService;
+import com.shixun.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
