@@ -1,6 +1,6 @@
-package com.shixun.aop;
+package cn.kmbeast.aop;
 
-import com.shixun.pojo.dto.query.base.QueryDto;
+import cn.kmbeast.pojo.dto.query.base.QueryDto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,6 +19,8 @@ public class PagerAspect {
      * @throws Throwable 异常
      */
     @Around("@annotation(pager)")
+//    专属的连接点对象，核心作用是：
+//代表被 AOP 拦截的 “目标方法”（比如你标注了@Pager的 Controller/list 方法），通过它可以获取目标方法的所有信息（参数、方法名、所属类等），
     public Object handlePageableParams(ProceedingJoinPoint joinPoint, Pager pager) throws Throwable {
         Object[] args = joinPoint.getArgs();
         for (Object arg : args) {
