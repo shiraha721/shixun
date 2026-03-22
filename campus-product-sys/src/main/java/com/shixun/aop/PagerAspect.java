@@ -1,6 +1,6 @@
 package cn.kmbeast.aop;
 
-import cn.kmbeast.pojo.dto.query.base.QueryDto;
+import com.shixun.pojo.dto.query.base.QueryDto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
