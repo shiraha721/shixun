@@ -1,9 +1,10 @@
-package com.shixun.aop;
+package cn.kmbeast.aop;
 
-import com.shixun.context.LocalThreadHolder;
-import com.shixun.pojo.api.ApiResult;
-import com.shixun.pojo.em.RoleEnum;
-import com.shixun.utils.JwtUtil;
+import cn.kmbeast.context.LocalThreadHolder;
+import cn.kmbeast.pojo.api.ApiResult;
+import cn.kmbeast.pojo.em.RoleEnum;
+import cn.kmbeast.service.UserService;
+import cn.kmbeast.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
@@ -31,7 +33,7 @@ public class ProtectorAspect {
      * @param proceedingJoinPoint 连接点
      * @return Object
      */
-    @Around("@annotation(com.shixun.aop.Protector)")
+    @Around("@annotation(cn.kmbeast.aop.Protector)")
     public Object auth(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
